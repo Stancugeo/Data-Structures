@@ -1,6 +1,7 @@
 #include <iostream>
 using std :: cout ;
 using std :: endl ;
+using std :: max ;
 struct Node{
     int value;
     Node * right;
@@ -151,7 +152,28 @@ struct BinaryTree{
         }
         return leaf;
     }
+    int height(Node* leaf) {
+        if (leaf == NULL) 
+            return 0;
+        else{
+            int left_height = height(leaf->left);
+            int right_height = height(leaf->right);
+            return max(left_height, right_height) + 1;
+        }
+    }
+    int levelofnode(int key){
+        return lofn(key,this->root,0);
+    }
+    int lofn(int key , Node * leaf, int level){
+        if(leaf==NULL) return -1;
+        else if(leaf->value == key) return level;
+        int l = lofn(key,leaf->left,level+1);
+        if(l!=-1) return l;
+        return lofn(key,leaf->right,level+1);
+
+    }
+
+    
     //https://www.cprogramming.com/tutorial/lesson18.html
 
 };
-
