@@ -1,4 +1,4 @@
-#include "MaxHeap.h";
+#include "MaxHeap.h"
 #include <iostream>
 using namespace std;
 
