@@ -1,7 +1,5 @@
 #include <iostream>
-using std :: cout;
-using std :: swap;
-using std :: max;
+using namespace std;
 
 class MaxHeap{
     public:
@@ -14,7 +12,7 @@ class MaxHeap{
     const int left_child(const int index);
     void sift_up(int index);
     void sift_down(int index);
-    void insert(int value,int index);
+    void insert(int value);
     void extractMax();
     void changePriority(int index , int value);
     int getMax();
