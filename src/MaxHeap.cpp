@@ -1,4 +1,4 @@
-#include "MaxHeap.h"
+#include "MaxHeap.hpp"
 #include <iostream>
 using namespace std;
 
@@ -65,8 +65,10 @@ const int MaxHeap :: find(const int index , const int value){
         
 }
   
-void MaxHeap :: insert(int value,int index){
-        array[index] = value;
+void MaxHeap :: insert(int value){
+        realloc(array,this->capacity+1);
+        array[this->capacity] = value;
+        this->capacity ++;
         sift_up(value);
 }
 void MaxHeap :: sift_down(int index){
@@ -90,5 +92,4 @@ void MaxHeap :: sift_up(int index){
         index = parent(index);
     }
 }
-
 
