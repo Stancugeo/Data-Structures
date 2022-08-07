@@ -92,4 +92,3 @@ void MaxHeap :: sift_up(int index){
         index = parent(index);
     }
 }
-
