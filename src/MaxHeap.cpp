@@ -23,10 +23,10 @@ const int MaxHeap :: parent(const int index){
     else return index/2;
 }
 const int MaxHeap :: right_child(const int index){
-    return index * 2 + 1 ;
+    return index * 2 + 2 ;
 }     
 const int MaxHeap :: left_child(const int index){
-    return index * 2 + 2 ;
+    return index * 2 + 1 ;
 }
 void MaxHeap :: print(){
     for(int i = 0 ; i < this->capacity ; i ++ ){
