@@ -8,7 +8,7 @@ struct Node{
     Node();
 
 };
-struct BinaryTree{
+class BinaryTree{
     public:
     Node * root;
     BinaryTree();
