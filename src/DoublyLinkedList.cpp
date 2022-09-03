@@ -142,3 +142,9 @@ void DoublyLinkedList :: InsertNodeAt(int key,int position){
     
     
 }
+DoublyLinkedList :: ~DoublyLinkedList(){
+    while(!IsEmpty()){
+        DeleteFirst();
+    }
+    
+}
