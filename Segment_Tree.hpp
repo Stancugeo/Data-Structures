@@ -33,3 +33,7 @@ class DycSegment_Tree{
 
 
 };
+class PersSegment_Tree{
+
+};
+
