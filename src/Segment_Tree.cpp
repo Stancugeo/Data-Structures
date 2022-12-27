@@ -47,4 +47,32 @@ int Segment_Tree :: sum(int left,int right,int l , int r,int node){
     return sum(left,mid,l,r,2*node+1) +
            sum(mid+1,right,l,r,2*node+2);
 }
+DycSegment_Tree :: DycSegment_Tree(int leftmost , int rightmost , vector<int>& Arr){
+    this->leftmost = leftmost;
+    this->rightmost = rightmost;
+    if(leftmost == rightmost){ this->sum = Arr[leftmost]; }else{
+        int mid = (leftmost + rightmost) / 2;
+        this->lChild = new DycSegment_Tree(leftmost, mid, Arr);
+        this->rChild = new DycSegment_Tree(mid + 1, rightmost, Arr);
+        recalc();
+    }
+}
+void DycSegment_Tree :: recalc(){
+    if(this->leftmost == this->rightmost) return;
+    this->sum = this->lChild->sum + this->rChild->sum;
+}
+void DycSegment_Tree :: pointUpdate(int index, int newVal){
+    if(this->leftmost == this->rightmost){
+        this->sum = newVal;
+        return ;
+    }
+    if(index <= this->lChild->rightmost) this->lChild->pointUpdate(index,newVal);
+    else this->rChild->pointUpdate(index,newVal);
+    recalc();
+}
+int DycSegment_Tree :: rangeSum(int l , int r){
+    if(l > this->rightmost || r < this->leftmost) return 0;
+    if(l <= this->leftmost && r >= this->rightmost) return this->sum;
+    return this->lChild->rangeSum(l,r) + this->rChild->rangeSum(l,r);
 
+}
