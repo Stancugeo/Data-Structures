@@ -20,3 +20,16 @@ public:
 
 
 };
+class DycSegment_Tree{
+    int leftmost;
+    int rightmost;
+    DycSegment_Tree* lChild;
+    DycSegment_Tree* rChild;
+    int sum;
+    DycSegment_Tree(int leftmost , int rightmost , vector<int>& Arr);
+    void recalc();
+    void pointUpdate(int index, int newVal);
+    int rangeSum(int l , int r);
+
+
+};
