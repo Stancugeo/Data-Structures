@@ -87,3 +87,14 @@ void QuickSort(int * v , int begin , int end){
         QuickSort(v,p+1,end);
     }
 }
+void SelectionSort(int * v, int begin , int end){
+	int indx = begin;
+	while(indx < end){
+		int min_i = indx;
+		for(int i = indx+1; i <= end; i ++){
+			if(v[min_i] > v[i]) min_i = i;
+		}
+		swap(v[indx],v[min_i]);
+		indx += 1;
+	}
+}
